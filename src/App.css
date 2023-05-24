@@ -1,10 +1,28 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.App-sub{
+  text-align: center;
+  background-color: black;
+  min-height: 100vh;
+  width: 70vw;
+  margin: auto;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.react-card-flip{
+  height: 100%;
+}
+
+.card-container{
+  min-height: 185px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,8 +32,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding: 30px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +45,20 @@
   color: #61dafb;
 }
 
+.ingredienti, .procedimento{
+  font-size: .9rem;
+}
+
+.cards-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+}
+
+.card{
+  max-width: 640px;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +66,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media screen and (max-width: 768px) {
+
+  /* .card-container{
+    height: 570px;
+  } */
+
 }
