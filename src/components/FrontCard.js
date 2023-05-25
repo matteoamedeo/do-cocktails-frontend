@@ -2,7 +2,9 @@ import React from 'react'
 import mojito from '../resources/mojito.jpg'
 
 
-const FrontCard = ({ handleClick }) => {
+const FrontCard = ({ handleClick, ingredienti, name }) => {
+    console.log(ingredienti)
+    console.log(name)
     return (
         <div className="card my-0 m-auto" onClick={handleClick}>
             <div className="row g-0">
