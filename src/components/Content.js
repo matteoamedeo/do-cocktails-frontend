@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import Card from './Card'
+import CardSpinner from './CardSpinner'
 
 const Content = () => {
 
@@ -39,7 +40,7 @@ const Content = () => {
 
                         )
                     })
-                    : 'nessun cocktail'
+                    : <CardSpinner />
             }
         </div>
     )

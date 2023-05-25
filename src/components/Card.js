@@ -22,8 +22,9 @@ const Card = ({ props }) => {
 
     return (
         <div className='my-3 card-container'>
+
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" className="h-100">
-                <FrontCard handleClick={handleClick} name={props.name} ingredienti={props.ingredienti}>
+                <FrontCard handleClick={handleClick} name={props.name} ingredienti={props.ingredienti} src={props.src}>
 
                 </FrontCard>
 
@@ -31,6 +32,7 @@ const Card = ({ props }) => {
 
                 </BackCard>
             </ReactCardFlip>
+
         </div>
     )
 }
