@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Montserrat&display=swap');
+
 .App {
   text-align: center;
   background-color: #282c34;
@@ -58,6 +60,21 @@
   max-width: 640px;
   cursor: pointer;
 }
+
+.logo{
+  font-size: 1.5rem;
+}
+
+.logo > span{
+  font-family: 'Delicious Handrawn', cursive;
+  font-size: 1.7rem;
+  letter-spacing: .3rem;
+}
+
+.myNav > div > a{
+  z-index: 2;
+}
+
 
 @keyframes App-logo-spin {
   from {

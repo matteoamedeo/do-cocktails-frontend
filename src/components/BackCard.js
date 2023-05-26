@@ -1,6 +1,4 @@
-import { React, useState, useRef } from 'react'
-import mojito from '../resources/mojito.jpg'
-import { useEffect } from 'react';
+import { React, useState, useRef, useEffect } from 'react'
 
 
 const BackCard = ({ handleClick, procedimento }) => {

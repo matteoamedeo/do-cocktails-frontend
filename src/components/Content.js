@@ -1,10 +1,13 @@
 import { React, useState, useEffect } from 'react'
 import Card from './Card'
 import CardSpinner from './CardSpinner'
+import SearchBar from './SearchBar'
 
-const Content = () => {
+const Content = ({ query }) => {
 
     const [data, setData] = useState();
+    const [cocktailList, setCocktailList] = useState();
+    const [cocktailFound, setCocktailFound] = useState(false);
 
     useEffect(() => {
         // fetch data
@@ -15,34 +18,53 @@ const Content = () => {
                 )
             ).json();
 
-            // set state when the data received
             setData(data);
+            setCocktailList(data);
+
         };
 
         dataFetch();
 
     }, []);
 
-    console.log(data)
+    const searchCocktail = (input) => {
+
+        if (input) {
+            setCocktailList(data.filter(cocktail => cocktail.name.toUpperCase().includes(input.toUpperCase())))
+        }
+
+        console.log(cocktailList)
+
+    }
+
+    const showAll = () => {
+
+        if (data) {
+            setCocktailList(data);
+        }
+
+    }
 
     return (
-        <div className="container-fluid">
-            {/* <Card />
-            <Card />
-            <Card />
-            <Card /> */}
+        <>
+            <SearchBar searchCocktail={searchCocktail} showAll={showAll} />
 
-            {
-                data ?
-                    data.map(cocktail => {
-                        return (
-                            <Card key={cocktail._id} props={cocktail}></Card>
+            <div className="container-fluid">
+                {
+                    cocktailList ?
+                        cocktailList.map(cocktail => {
+                            return (
+                                cocktail._id ?
+                                    <Card key={cocktail._id} props={cocktail}></Card>
+                                    : ''
+                            )
+                        })
+                        : <CardSpinner />
+                }
+                { }
+            </div>
+        </>
 
-                        )
-                    })
-                    : <CardSpinner />
-            }
-        </div>
     )
 }
 
