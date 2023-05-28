@@ -7,14 +7,18 @@ const Content = ({ query }) => {
 
     const [data, setData] = useState();
     const [cocktailList, setCocktailList] = useState();
-    const [cocktailFound, setCocktailFound] = useState(false);
+    const [fetchStatus, setFetchStatus] = useState()
+    // const [cocktailFound, setCocktailFound] = useState(false);
 
     useEffect(() => {
         // fetch data
         const dataFetch = async () => {
             const data = await (
                 await fetch(
-                    "http://localhost:5000/api/cocktails/getAllCocktails"
+                    "http://localhost:5000/api/cocktails/getAllCocktails", {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json" },
+                }
                 )
             ).json();
 
@@ -26,6 +30,7 @@ const Content = ({ query }) => {
         dataFetch();
 
     }, []);
+
 
     const searchCocktail = (input) => {
 
@@ -48,7 +53,6 @@ const Content = ({ query }) => {
     return (
         <>
             <SearchBar searchCocktail={searchCocktail} showAll={showAll} />
-
             <div className="container-fluid">
                 {
                     cocktailList ?

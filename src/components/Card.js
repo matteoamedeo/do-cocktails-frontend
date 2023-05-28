@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import mojito from '../resources/mojito.jpg'
-import CocktailModal from './CocktailModal'
+import React, { useState } from 'react'
 import ReactCardFlip from 'react-card-flip';
 import FrontCard from './FrontCard';
 import BackCard from './BackCard';
 
 const Card = ({ props }) => {
 
-    const [isOpen, setIsOpen] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
-
-    // console.log(props)
-
-    const openModal = () => {
-        setIsOpen(true)
-    }
 
     const handleClick = (e) => {
         setIsFlipped(!isFlipped);

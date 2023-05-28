@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useRef } from 'react'
+import { React, useEffect, useState } from 'react'
 import CardSpinner from './CardSpinner'
 
 const FrontCard = ({ handleClick, ingredienti, name, src }) => {
