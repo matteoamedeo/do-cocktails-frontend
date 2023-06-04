@@ -35,7 +35,8 @@ const Content = ({ query }) => {
     const searchCocktail = (input) => {
 
         if (input) {
-            setCocktailList(data.filter(cocktail => cocktail.name.toUpperCase().includes(input.toUpperCase())))
+            setCocktailList(data.filter(cocktail => cocktail.name.toUpperCase().includes(input.toUpperCase()) || 
+                                                    cocktail.ingredienti.toUpperCase().includes(input.toUpperCase())))
         }
 
         console.log(cocktailList)
@@ -65,7 +66,6 @@ const Content = ({ query }) => {
                         })
                         : <CardSpinner />
                 }
-                { }
             </div>
         </>
 
