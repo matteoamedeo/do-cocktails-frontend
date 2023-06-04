@@ -52,8 +52,8 @@ const Content = ({ query }) => {
     useEffect(() => {
         console.log(cocktailList)
 
-        setCocktailFound(cocktailList.length)
-
+        if(cocktailList)
+            setCocktailFound(cocktailList.length)
 
     }, [cocktailList]);
 
