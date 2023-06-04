@@ -7,8 +7,7 @@ const Content = ({ query }) => {
 
     const [data, setData] = useState();
     const [cocktailList, setCocktailList] = useState();
-    const [fetchStatus, setFetchStatus] = useState()
-    // const [cocktailFound, setCocktailFound] = useState(false);
+    const [cocktailFound, setCocktailFound] = useState(false);
 
     useEffect(() => {
         // fetch data
@@ -39,8 +38,6 @@ const Content = ({ query }) => {
                                                     cocktail.ingredienti.toUpperCase().includes(input.toUpperCase())))
         }
 
-        console.log(cocktailList)
-
     }
 
     const showAll = () => {
@@ -50,6 +47,16 @@ const Content = ({ query }) => {
         }
 
     }
+
+    /* IF NO RESULTS */
+    useEffect(() => {
+        console.log(cocktailList)
+
+        if(cocktailList)
+            setCocktailFound(cocktailList.length)
+
+    }, [cocktailList]);
+
 
     return (
         <>
@@ -67,6 +74,15 @@ const Content = ({ query }) => {
                         : <CardSpinner />
                 }
             </div>
+
+            {/* RESULTS */}
+            {
+                !cocktailFound ? 
+
+                <div className='cocktail-results m-5 text-light'>Nessun cocktail trovato</div>
+
+                : ''
+            }
         </>
 
     )
