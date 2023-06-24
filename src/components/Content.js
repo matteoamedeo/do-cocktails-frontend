@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import Card from './Card'
 import CardSpinner from './CardSpinner'
 import SearchBar from './SearchBar'
+import {reducer, initialState} from '../utils/CheckLogin'
 
 const Content = ({ query }) => {
 
@@ -50,7 +51,6 @@ const Content = ({ query }) => {
 
     /* IF NO RESULTS */
     useEffect(() => {
-        console.log(cocktailList)
 
         if(cocktailList)
             setCocktailFound(cocktailList.length)
@@ -77,7 +77,7 @@ const Content = ({ query }) => {
 
             {/* RESULTS */}
             {
-                !cocktailFound ? 
+                !cocktailFound && cocktailList ? 
 
                 <div className='cocktail-results m-5 text-light'>Nessun cocktail trovato</div>
 
